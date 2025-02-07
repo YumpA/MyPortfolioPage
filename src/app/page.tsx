@@ -1,9 +1,12 @@
+
 import Image from "next/image";
-import { Button, Tabs, Watermark, Collapse, CollapseProps, ConfigProvider, Carousel } from "antd";
+import { Button, Tabs, Watermark, Collapse, CollapseProps, ConfigProvider, Carousel, message } from "antd";
 import "tailwindcss";
 import { Color } from "antd/es/color-picker";
 import { FontSizeOutlined, GithubOutlined, GoogleOutlined } from "@ant-design/icons";
 import React from "react";
+//import { Router } from "lucide-react";
+//import {useRouter} from "next/navigation";
 
 const text1 = `
  Учусь на 3 курсе по специальности Web-разработчик
@@ -46,6 +49,12 @@ const contentStyle: React.CSSProperties = {
   background: 'rgb(26, 11, 46, 0.8)',
   borderRadius:'10%',
 };
+
+  async function copy(dgfedf:string){
+    navigator.clipboard.writeText(dgfedf);
+    alert("ссылка скопирована!");
+  }
+
 
 export default function Home() {
   return (
@@ -148,7 +157,7 @@ export default function Home() {
           <div className="flex flex-row justify-around m-auto mt-6 mb-1 w-2/3">
             <GoogleOutlined style={{fontSize: 50, color: '#7127BA', cursor:'pointer'}} />
             <a href="https://github.com/YumpA"><GithubOutlined style={{fontSize: 50, color:'#7127BA'}} /></a>
-            <img style={{cursor:'pointer'}} src="image/icons8-телеграм-50.png" width={50} alt="tg"></img>
+            <img onClick={()=> copy("rgfer")} style={{cursor:'pointer'}} src="image/icons8-телеграм-50.png" width={50} alt="tg"></img>
             <img style={{cursor:'pointer'}} src="image/icons8-почта-50.png" width={50} alt="mail"></img>
           </div>
         </div>
